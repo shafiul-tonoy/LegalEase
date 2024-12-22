@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Navbar from "../components/Navbar";
+import Footer from "../pages/Footer";
 
 export default function MainLayouts() {
   return (
@@ -9,10 +10,12 @@ export default function MainLayouts() {
       <header>
         <Navbar />
       </header>
-      <main className= 'font-nunito' >
+      <main className= 'font-nunito min-h-[calc(100vh-325px)]' >
         <Outlet />
       </main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
