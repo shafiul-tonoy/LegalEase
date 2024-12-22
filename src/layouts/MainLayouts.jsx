@@ -9,7 +9,7 @@ export default function MainLayouts() {
       <header>
         <Navbar />
       </header>
-      <main>
+      <main className= 'font-nunito' >
         <Outlet />
       </main>
       <footer></footer>

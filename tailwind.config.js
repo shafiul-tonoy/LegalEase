@@ -3,7 +3,12 @@ import daisyui from "daisyui";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        cinzel: ['"Cinzel Decorative"', "serif"],
+        nunito: ["Nunito", "serif"],
+      },
+    },
   },
   plugins: [daisyui],
 };
