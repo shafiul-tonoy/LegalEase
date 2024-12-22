@@ -1,6 +1,6 @@
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
-import {  useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { success } from "../utility/toastMsg";
@@ -32,7 +32,7 @@ export default function Register() {
         })
           .then(() => {
             navigate("/");
-            success()
+            success();
           })
           .catch((err) => setError(err.code));
       })
@@ -48,7 +48,7 @@ export default function Register() {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        success()
+        success();
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => setError(err.code));
@@ -170,9 +170,9 @@ export default function Register() {
 
         <p className="mt-4 text-sm text-center text-gray-600">
           Already have an account?{" "}
-          <a href="/login" className="text-blue-500 hover:underline">
-            Login here
-          </a>
+          <Link to="/login" className="font-semibold text-blue-500">
+            Login
+          </Link>
         </p>
       </div>
     </div>

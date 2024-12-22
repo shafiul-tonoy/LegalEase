@@ -9,10 +9,11 @@ import {
   updateProfile,
   signInWithPopup,
   GoogleAuthProvider,
-  
 } from "firebase/auth";
 
 import auth from "../firebase/firebase.config";
+
+import axios from "../hooks/useAxios";
 
 export const AuthContext = createContext();
 
@@ -42,7 +43,7 @@ export default function AuthProvider({ children }) {
   //logout
   const logout = () => {
     setLoading(true);
-    success()
+    success();
     return signOut(auth);
   };
 
@@ -52,16 +53,38 @@ export default function AuthProvider({ children }) {
     return updateProfile(auth.currentUser, updatedData);
   };
 
- 
-
   //use effect
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+  //     setUser(currentUser);
+  //     setLoading(false);
+  //   });
+
+  //   return () => unsubscribe();
+  // }, []);
+
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      console.log("CurrentUser -->", currentUser);
       setUser(currentUser);
-      setLoading(false);
+
+      try {
+        if (currentUser?.email) {
+          const { data } = await axios.post("/jwt", {
+            email: currentUser.email,
+          });
+          console.log("JWT Response -->", data);
+        } else {
+          await axios.get("/logout");
+        }
+      } catch (error) {
+        console.error("Error during auth state change handling:", error);
+      } finally {
+        setLoading(false);
+      }
     });
 
-    return () => unsubscribe();
+    return unsubscribe; // Cleanup subscription
   }, []);
 
   const authInfo = {
@@ -73,7 +96,6 @@ export default function AuthProvider({ children }) {
     user,
     setUser,
     signInWithGoogle,
- 
   };
 
   return (

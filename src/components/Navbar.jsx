@@ -1,24 +1,46 @@
 import ThemeToggle from "./ThemeToggle";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { PiSignOutLight, PiSignInLight } from "react-icons/pi";
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
   const navItems = (
     <>
-      <li>
-        <a>Home</a>
+      <li className= '' >
+        <NavLink to="/" className="text-linksColor">
+          Home
+        </NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <NavLink to="/services" className="text-linksColor">
+          Services
+        </NavLink>
       </li>
     </>
   );
   const dropdownItems = (
     <>
-      <li>
-        <a>hello 1</a>
-      </li>
-      <li>
-        <a>Submenu 2</a>
-      </li>
+    <li className= 'w-36' >      
+      <Link to="/">
+        Add Service
+      </Link>
+    </li>
+    <li>      
+      <Link to="/">
+        Manage Service
+      </Link>
+    </li>
+    <li>      
+      <Link to="/">
+        Booked Service
+      </Link>
+    </li>
+    <li>      
+      <Link to="/">
+         Service To Do
+      </Link>
+    </li>
     </>
   );
 
@@ -45,16 +67,18 @@ export default function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3  p-2 shadow"
             >
               {navItems}
               <li>
                 <a>Dashboard</a>
-                <ul className="p-2">{dropdownItems}</ul>
+                <ul className="p-2 ">{dropdownItems}</ul>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <Link to="/" className="btn btn-ghost text-xl">
+            Legal Ease
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -62,13 +86,8 @@ export default function Navbar() {
             <li>
               <details>
                 <summary>Dashboard</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
+                <ul className="p-2 border rounded-lg bg-base-100 shadow-lg">
+                  {dropdownItems}
                 </ul>
               </details>
             </li>
@@ -76,7 +95,40 @@ export default function Navbar() {
         </div>
         <div className="navbar-end">
           <div className="flex flex-col gap-2 md:flex-row items-center justify-center">
-            <a>Login</a>
+            {user && user?.email ? (
+              <div className="flex items-center gap-1">
+                <div
+                  className="tooltip  tooltip-left"
+                  data-tip={user.displayName}
+                >
+                  <img
+                    src={user.photoURL}
+                    alt="image"
+                    className="w-10 h-10 rounded-full object-cover object-top"
+                  ></img>
+                </div>
+
+                <button
+                  className="btn btn-ghost text-linksColor"
+                  onClick={logout}
+                >
+                  Logout
+                  <PiSignOutLight />
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link to="/login" className="btn btn-ghost ">
+                  {" "}
+                  <PiSignInLight size="18" />
+                  <span className="text-linksColor">Login</span>
+                </Link>
+                <Link to="/register" className="btn btn-ghost ">
+                  {" "}
+                  <span className="text-linksColor">Register</span>
+                </Link>
+              </>
+            )}
             <ThemeToggle />
           </div>
         </div>
@@ -84,6 +136,3 @@ export default function Navbar() {
     </div>
   );
 }
- 
-
-
