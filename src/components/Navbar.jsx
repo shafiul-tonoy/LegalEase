@@ -7,40 +7,32 @@ export default function Navbar() {
   const { user, logout } = useAuth();
   const navItems = (
     <>
-      <li className= '' >
+      <li className="">
         <NavLink to="/" className="text-linksColor">
           Home
         </NavLink>
       </li>
       <li>
         <NavLink to="/services" className="text-linksColor">
-          Services
+          All Services
         </NavLink>
       </li>
     </>
   );
   const dropdownItems = (
     <>
-    <li className= 'w-36' >      
-      <Link to="/">
-        Add Service
-      </Link>
-    </li>
-    <li>      
-      <Link to="/">
-        Manage Service
-      </Link>
-    </li>
-    <li>      
-      <Link to="/">
-        Booked Service
-      </Link>
-    </li>
-    <li>      
-      <Link to="/">
-         Service To Do
-      </Link>
-    </li>
+      <li className="w-36">
+        <Link to="/addService">Add Service</Link>
+      </li>
+      <li>
+        <Link to="/manageService">Manage Service</Link>
+      </li>
+      <li>
+        <Link to="/bookedService">Booked Service</Link>
+      </li>
+      <li>
+        <Link to="/serviceToDo">Service To Do</Link>
+      </li>
     </>
   );
 

@@ -54,19 +54,8 @@ export default function AuthProvider({ children }) {
     return updateProfile(auth.currentUser, updatedData);
   };
 
-  //use effect
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //     setUser(currentUser);
-  //     setLoading(false);
-  //   });
-
-  //   return () => unsubscribe();
-  // }, []);
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      console.log("CurrentUser -->", currentUser);
       setUser(currentUser);
 
       try {
@@ -86,7 +75,7 @@ export default function AuthProvider({ children }) {
     });
 
     return unsubscribe; // Cleanup subscription
-  }, []);
+  }, [axios]);
 
   const authInfo = {
     createNewUser,

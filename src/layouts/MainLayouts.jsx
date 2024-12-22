@@ -10,7 +10,7 @@ export default function MainLayouts() {
       <header>
         <Navbar />
       </header>
-      <main className= 'font-nunito min-h-[calc(100vh-325px)]' >
+      <main className="font-nunito min-h-[calc(100vh-325px)]">
         <Outlet />
       </main>
       <footer>
