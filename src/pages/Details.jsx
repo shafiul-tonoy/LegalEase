@@ -86,6 +86,7 @@ export default function Details() {
       } else {
         throw new Error("Failed to book service.");
       }
+    // eslint-disable-next-line no-unused-vars
     } catch (err) {
       // console.log(err);      
       errorToast("Service booking failed. Please check if you have already purchased this service.");

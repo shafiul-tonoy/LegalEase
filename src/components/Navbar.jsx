@@ -63,17 +63,24 @@ export default function Navbar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1050] mt-3  p-2 shadow"
             >
               {navItems}
-              <li>
-                <a>Dashboard</a>
-                <ul className="p-2 ">{dropdownItems}</ul>
-              </li>
+
+              {user && user?.email && (
+                <>
+                  <li>
+                    <a>Dashboard</a>
+                    <ul className="p-2 ">{dropdownItems}</ul>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <div>
             <Link to="/" className=" text-xl my-0">
               <div className="flex flex-col md:flex-row items-center">
                 <img src={logo1} className="h-20 object-cover" />
-                <span className= 'font-cinzel md:text-3xl font-extrabold' >Legal Ease</span>
+                <span className="font-cinzel md:text-3xl font-extrabold">
+                  Legal Ease
+                </span>
               </div>
             </Link>
           </div>
@@ -81,14 +88,20 @@ export default function Navbar() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 ">
             {navItems}
-            <li>
-              <details>
-                <summary>Dashboard</summary>
-                <ul className="p-2 border rounded-lg bg-base-100 shadow-lg z-[1] ">
-                  {dropdownItems}
-                </ul>
-              </details>
-            </li>
+
+            {
+              user && user?.email && (
+                <li>
+                  <details>
+                    <summary>Dashboard</summary>
+                    <ul className="p-2 border rounded-lg bg-base-100 shadow-lg z-[1] ">
+                      {dropdownItems}
+                    </ul>
+                  </details>
+                </li>
+              )
+            }
+           
           </ul>
         </div>
         <div className="navbar-end">
