@@ -1,6 +1,6 @@
 Legal Ease
 Website URL
-[Add your site URL here]
+[https://shafiul-a11.web.app/]
 
 Features
 Authentication System: Secure login and registration for users.
