@@ -37,9 +37,9 @@ export default function Navbar() {
   );
 
   return (
-    <div className="w-full md:w-10/12 mx-auto">
+    <div className="w-full md:w-10/12 mx-auto ">
       <div className="navbar bg-base-100">
-        <div className="navbar-start">
+        <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -59,7 +59,7 @@ export default function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3  p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1050] mt-3  p-2 shadow"
             >
               {navItems}
               <li>

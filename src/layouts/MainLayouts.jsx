@@ -8,8 +8,8 @@ export default function MainLayouts() {
     <>
       <Toaster />
       <header>
-        <Navbar />
-      </header>
+        <Navbar />        
+      </header>      
       <main className="font-nunito min-h-[calc(100vh-325px)]">
         <Outlet />
       </main>
