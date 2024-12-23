@@ -1,6 +1,6 @@
 export default function FAQAccordion() {
   return (
-    <div className="w-full max-w-3xl mx-auto my-10">
+    <div className="w-full max-w-3xl mx-auto my-10 ">
       <h1 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h1>
       <div className="space-y-4">
         {/* Accordion Item 1 */}

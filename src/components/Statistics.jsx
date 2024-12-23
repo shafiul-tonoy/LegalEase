@@ -1,10 +1,10 @@
 export default function Statistics(){
     return (
-        <div className="bg-gray-100 py-5">
+        <div className="bg-gray-100 py-5 mt-2">
         
       <div className="w-full md:w-10/12 mx-auto md:p-7 text-center">
-      <h1 className= 'my-4' >Statistics</h1>
-        <div className="stats shadow">
+      <h1 className= 'text-3xl font-bold text-center mb-8' >Statistics</h1>
+        <div className="stats shadow stats-vertical lg:stats-horizontal">
           <div className="stat">
             <div className="stat-figure text-secondary">
               <svg

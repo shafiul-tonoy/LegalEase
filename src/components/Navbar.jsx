@@ -2,6 +2,7 @@ import ThemeToggle from "./ThemeToggle";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { PiSignOutLight, PiSignInLight } from "react-icons/pi";
+import logo1 from '../assets/logo-1.jpg'
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -68,9 +69,12 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost text-xl">
-            Legal Ease
-          </Link>
+          <div className="flex flex-col md:flex-row items-center">
+            <img src={logo1} className= 'h-20 object-cover' />
+            <Link to="/" className="btn btn-ghost text-xl p-0">
+              Legal Ease
+            </Link>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 ">
