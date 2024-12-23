@@ -73,12 +73,12 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 ">
             {navItems}
             <li>
               <details>
                 <summary>Dashboard</summary>
-                <ul className="p-2 border rounded-lg bg-base-100 shadow-lg">
+                <ul className="p-2 border rounded-lg bg-base-100 shadow-lg z-[1] ">
                   {dropdownItems}
                 </ul>
               </details>

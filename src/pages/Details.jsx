@@ -1,14 +1,17 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
-// import { Link } from "react-router-dom";
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Loading from "../components/Loading";
 import useAuth from "../hooks/useAuth";
+import { success } from "../utility/toastMsg";
+import { useNavigate } from "react-router-dom";
 
 export default function Details() {
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -58,7 +61,7 @@ export default function Details() {
     _id: serviceId,
   } = data;
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const updatedData = {
       ...data,
       serviceId,
@@ -73,8 +76,15 @@ export default function Details() {
       serviceStatus: "pending",
     };
 
-    console.log(updatedData);
-    
+    //axios request
+
+    try {
+      await axiosRequest.post(`/bookedServices`, updatedData);
+      navigate("/bookedService");
+      success();
+    } catch (err) {
+      console.error("Error :", err.message || err);
+    }
   };
 
   return (
