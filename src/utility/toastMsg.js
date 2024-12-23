@@ -1,3 +1,4 @@
 import toast from "react-hot-toast"
 const success = () =>toast.success("Successful!")
-export {success}
+const errorToast = (msg) => toast.error(msg)
+export {success, errorToast}

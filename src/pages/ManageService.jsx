@@ -84,6 +84,7 @@ export default function ManageService() {
       photoURL: user.photoURL,
     };
 
+    // eslint-disable-next-line no-unused-vars
     const { serviceId, ...payload } = data;
 
     try {
@@ -273,29 +274,7 @@ export default function ManageService() {
                     )}
                   </div>
 
-                  <div>
-                    <label
-                      htmlFor="serviceArea"
-                      className="block text-sm font-medium text-gray-600"
-                    >
-                      Service Area
-                    </label>
-                    <input
-                      type="text"
-                      id="serviceArea"
-                      name="serviceArea"
-                      className="w-full px-4 py-3 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-300"
-                      placeholder="Enter the service area"
-                      {...register("serviceArea", {
-                        required: "Service area is required",
-                      })}
-                    />
-                    {errors.serviceArea && (
-                      <p className="text-xs text-red-500 mt-1">
-                        {errors.serviceArea.message}
-                      </p>
-                    )}
-                  </div>
+                  
 
                   {/* Description */}
                   <div>

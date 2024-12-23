@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Loading from "../components/Loading";
 import useAuth from "../hooks/useAuth";
-import { success } from "../utility/toastMsg";
+import { success, errorToast } from "../utility/toastMsg";
 import { useNavigate } from "react-router-dom";
 
 export default function Details() {
@@ -79,11 +79,16 @@ export default function Details() {
     //axios request
 
     try {
-      await axiosRequest.post(`/bookedServices`, updatedData);
-      navigate("/bookedService");
-      success();
+      const response = await axiosRequest.post(`/bookedServices`, updatedData);
+      if (response.status >= 200 && response.status < 300) {
+        navigate("/bookedService");
+        success();
+      } else {
+        throw new Error("Failed to book service.");
+      }
     } catch (err) {
-      console.error("Error :", err.message || err);
+      // console.log(err);      
+      errorToast("Service booking failed. Please check if you have already purchased this service.");
     }
   };
 
