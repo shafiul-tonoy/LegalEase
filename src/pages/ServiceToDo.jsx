@@ -61,7 +61,7 @@ export default function ServiceToDo() {
         <title>L.E | Service to do</title>
       </Helmet>
       <div className="w-full md:w-10/12 mx-auto md:p-7">
-        <h1>Service to Do</h1>
+        <h1 className= 'text-3xl font-bold text-center' >Service to Do</h1>
         {data.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="table">
@@ -119,7 +119,7 @@ export default function ServiceToDo() {
             </table>
           </div>
         ) : (
-          <p>No service to do</p>
+          <p className="text-center text-red-500 mt-10">No service to do</p>
         )}
       </div>
     </>

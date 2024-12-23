@@ -124,7 +124,7 @@ export default function Services() {
                             <p>{service.serviceProvider.name}</p>
                           </div>
                         </div>
-                        <div className="card-actions justify-end">
+                        <div className="card-actions justify-end ">
                           <button className="btn btn-primary">
                             <Link to={`/details/${service._id}`}>
                               View Details

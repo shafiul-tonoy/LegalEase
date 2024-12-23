@@ -104,7 +104,7 @@ export default function Details() {
             alt={serviceName}
             className="w-full h-96 object-cover"
           />
-          <div className="p-6">
+          <div className="p-6 space-y-3">
             <h3 className="text-xl font-bold text-gray-800">{serviceName}</h3>
             <p className="text-gray-600">{description}</p>
             <div className="mt-4">
@@ -125,7 +125,7 @@ export default function Details() {
                 <p className="text-gray-800 font-bold">
                   {serviceProvider.name}
                 </p>
-                <p className="text-gray-600 text-sm">{serviceArea}</p>
+                <p className="text-gray-600 text-sm font-semibold">{serviceArea}</p>
               </div>
             </div>
             <button className="btn mt-5 btn-primary w-full" onClick={openModal}>

@@ -2,7 +2,7 @@ import ThemeToggle from "./ThemeToggle";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { PiSignOutLight, PiSignInLight } from "react-icons/pi";
-import logo1 from '../assets/logo-1.jpg'
+import logo1 from "../assets/logo-1.jpg";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -39,7 +39,7 @@ export default function Navbar() {
 
   return (
     <div className="w-full md:w-10/12 mx-auto ">
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 ">
         <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -69,10 +69,12 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <div className="flex flex-col md:flex-row items-center">
-            <img src={logo1} className= 'h-20 object-cover' />
-            <Link to="/" className="btn btn-ghost text-xl p-0">
-              Legal Ease
+          <div>
+            <Link to="/" className=" text-xl my-0">
+              <div className="flex flex-col md:flex-row items-center">
+                <img src={logo1} className="h-20 object-cover" />
+                <span className= 'font-cinzel md:text-3xl font-extrabold' >Legal Ease</span>
+              </div>
             </Link>
           </div>
         </div>
