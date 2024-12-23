@@ -4,6 +4,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Loading from "../components/Loading";
 import { success, errorToast } from "../utility/toastMsg";
+import { TfiEmail } from "react-icons/tfi";
 
 export default function ServiceToDo() {
   const { user } = useAuth();
@@ -72,6 +73,7 @@ export default function ServiceToDo() {
                   <th>Service Taking Date</th>
                   <th>Status</th>
                   <th>Update Status</th>
+                  <th>Instructions</th>
                 </tr>
               </thead>
               <tbody>
@@ -100,6 +102,16 @@ export default function ServiceToDo() {
                         <option value="working">Working</option>
                         <option value="completed">Completed</option>
                       </select>
+                    </td>
+                    <td>
+                      <div
+                        className="tooltip"
+                        data-tip={service.specialInstructions}
+                      >
+                        <button className="btn">
+                          <TfiEmail />
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
