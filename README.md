@@ -30,8 +30,8 @@ This platform is a solution that bridges the gap between users seeking legal ser
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/shafiul-tonoy/earnify.git
-    cd earnify
+    git clone https://github.com/shafiul-tonoy/LegalEase.git
+    
     ```
 
 2. Install dependencies:
