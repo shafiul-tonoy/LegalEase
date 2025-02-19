@@ -8,7 +8,7 @@ export default function MainLayouts() {
     <>
       <Toaster />
       <header>
-        <div className="fixed top-0 left-0 right-0 z-[1000] w-screen">
+        <div className="fixed top-0 left-0 right-0 z-[1000] w-screen ">
           <Navbar />
         </div>
       </header>

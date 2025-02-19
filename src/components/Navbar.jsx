@@ -38,7 +38,7 @@ export default function Navbar() {
   );
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-base-100">
       <div className="w-full md:w-10/12 mx-auto ">
         <div className="navbar bg-base-100 ">
           <div className="navbar-start ">
